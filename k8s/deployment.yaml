@@ -21,18 +21,17 @@ spec:
           ports:
             - containerPort: 8080
           livenessProbe:
-            httpGet:
-              path: /api/orders/health
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            tcpSocket:
               port: 8080
             initialDelaySeconds: 30
-            periodSeconds: 10
-            timeoutSeconds: 2
-          readinessProbe:
-            httpGet:
-              path: /api/orders/health
-              port: 8080
-            initialDelaySeconds: 10
             periodSeconds: 5
+            timeoutSeconds: 5
           resources:
             requests:
               cpu: "100m"
