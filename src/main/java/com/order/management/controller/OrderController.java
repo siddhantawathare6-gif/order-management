@@ -23,7 +23,7 @@ public class OrderController {
         return service.getAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id:\\d+}")
     public Order get(@PathVariable Long id) {
         return service.getById(id);
     }
