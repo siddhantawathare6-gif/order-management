@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: order-management
-          image: IMAGE_PLACEHOLDER
+          image: docker.io/siddhant9960/order-management:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
